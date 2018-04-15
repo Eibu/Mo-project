@@ -2,6 +2,7 @@ classdef genetic_algorithm
     %GENETIC_ALGORITHM 
     properties
         population;
+        archive;
         config;
         stop;
     end
@@ -10,6 +11,7 @@ classdef genetic_algorithm
         function obj = genetic_algorithm(config)
             obj.config = config;
             obj.population = generate_Population(config);
+            obj.archive(obj.config.SN) = individual;
         end
         
         function obj = run(obj)

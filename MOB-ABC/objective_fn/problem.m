@@ -1,4 +1,4 @@
-classdef Objectives_fn
+classdef problem
     %OBJECTIVES_FN Summary of this class goes here
     %   Detailed explanation goes here
     
@@ -9,7 +9,7 @@ classdef Objectives_fn
     end
     
     methods
-        function obj = Objectives_fn(functions, optimal_solutions,bounds)
+        function obj = problem(functions, optimal_solutions,bounds)
             obj.functions = functions;
             obj.optimal_solutions = optimal_solutions;
             obj.bounds = bounds;
