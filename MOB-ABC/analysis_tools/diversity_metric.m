@@ -1,13 +1,13 @@
 function [delta] = diversity_metric(population,config)
 %DELTA 
 N = length(population);
-interval = config.objectives.optimal_solutions;
+interval = config.problem.optimal_solutions;
 u = interval(:,2);
 l = interval(:,1);
-fns = config.objectives.functions;
+fns = config.problem.functions;
 uov = eval(u,fns);
 lov = eval(l,fns);
-ovs = (reshape([population.objectiveValues],[2 N]))';
+ovs = (reshape([population.ovs],[2 N]))';
 [df,id1] = nearest_dist(uov,ovs); 
 [dl,~] = nearest_dist(lov,ovs);
 current = ovs(id1,:);

@@ -12,8 +12,7 @@ classdef source
     
     methods
         
-        function obj = source(vars)
-            obj.vars = vars;
+        function obj = source()
             obj.trial_counter =0;
         end
         

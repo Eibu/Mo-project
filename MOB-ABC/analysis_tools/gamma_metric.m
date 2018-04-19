@@ -1,8 +1,8 @@
 function [gamma] = gamma_metric(population, config, H)
 %GAMMA_METRIC 
 N = length(population);
-population = evaluate_obj_val(population,config.objectives.functions);
-ovs = reshape([population.objectiveValues],[2 N])';
+%population = evaluate_obj_val(population,config.problem.functions);
+ovs = reshape([population.ovs],[2 N])';
 segments = segment(config,H);
 distances = zeros(1,N);
 for i = 1:N
@@ -22,9 +22,9 @@ end
 
 function segments = segment(config,H)
 
-interval = config.objectives.optimal_solutions;
-f1 = config.objectives.functions{1};
-f2 = config.objectives.functions{2};
+interval = config.problem.optimal_solutions;
+f1 = config.problem.functions{1};
+f2 = config.problem.functions{2};
 N = length(interval(:,1));
 X = zeros(H,N);
 for n = 1:N
